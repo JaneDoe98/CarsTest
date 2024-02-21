@@ -1,0 +1,27 @@
+﻿@model OwnershipViewModel
+@{
+    ViewData["Title"] = @Model.OwnerName.ToString() + " autói"; }
+
+<h1>@Model.OwnerName.ToString() autói</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Márka</th>
+            <th>Típus</th>
+            <th>Rendszám</th>
+            <th>Gyártási Év</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var car in Model.CarList)
+        {
+                    <tr>
+                        <td>@car.Brand</td>
+                        <td>@car.Type</td>
+                        <td>@car.RegistrationNumber</td>
+                        <td>@(car.ProductionDate.HasValue ? car.ProductionDate.Value.ToString("yyyy-MM-dd") : "")</td>
+                    </tr>
+        }
+    </tbody>
+</table>

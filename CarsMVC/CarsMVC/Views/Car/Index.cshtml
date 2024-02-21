@@ -1,0 +1,32 @@
+﻿@model List<Car>
+@{
+    ViewData["Title"] = "Autók";
+}
+
+<h1>Autók</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Márka</th>
+            <th>Típus</th>
+            <th>Rendszám</th>
+            <th>Gyártási Év</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var car in Model)
+        {
+                <tr>
+                    <td>@car.Brand</td>
+                    <td>@car.Type</td>
+                    <td>@car.RegistrationNumber</td>
+                    <td>@(car.ProductionDate.HasValue ? car.ProductionDate.Value.ToString("yyyy-MM-dd") : "")</td>
+
+                    <td><a href="Car/Update/@car.CarId">Módosítás</a></td>
+                    <td><a href="Car/Delete/@car.CarId" class="a-delete">Törlés</a></td>
+                </tr>
+        }
+    </tbody>
+</table>
+@Html.ActionLink("Új autó felvétele", "Create", "Car")

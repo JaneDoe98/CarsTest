@@ -1,0 +1,22 @@
+﻿@model CreateOwnerViewModel
+@{
+    ViewData["Title"] = "Új Tulajdonos Felvétele";
+}
+
+<h1>Új tulajdonos hozzáadása</h1>
+<form method="post" action="Create">
+    <div class="form-group">
+        <label for="">Vezetéknév</label>
+        <input class="form-control" asp-for="Surname">
+    </div>
+    <div class="form-group">
+        <label for="">Keresztnév</label>
+        <input class="form-control" asp-for="Firstname">
+    </div>
+    <div class="form-group">
+        <label for="">Születési Dátum</label>
+        <input type="date" class="form-control" asp-for="BirthDate">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Hozzáadás</button>
+</form>

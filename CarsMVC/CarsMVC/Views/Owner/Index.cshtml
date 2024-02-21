@@ -1,0 +1,31 @@
+﻿@model List<Owner>
+@{
+    ViewData["Title"] = "Tulajdonosok";
+}
+
+<h1>Tulajdonosok</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Vezetéknév</th>
+            <th>Keresztnév</th>
+            <th>Születési Dátum</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var owner in Model)
+        {
+            <tr>
+                <td>@owner.Surname</td>
+                <td>@owner.Firstname</td>
+                <td>@(owner.BirthDate.HasValue ? owner.BirthDate.Value.ToString("yyyy-MM-dd") : "")</td>
+
+                <td><a href="Owner/Update/@owner.OwnerId">Módosítás</a></td>
+                <td><a href="Owner/Delete/@owner.OwnerId" class="a-delete">Törlés</a></td>
+                <td><a href="Owner/Ownership/@owner.OwnerId">Birtokolt Járművek megtekintése</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+@Html.ActionLink("Új tulajdonos felvétele", "Create", "Owner")

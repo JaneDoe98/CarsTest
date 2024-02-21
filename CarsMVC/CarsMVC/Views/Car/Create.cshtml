@@ -1,0 +1,26 @@
+﻿@model CreateCarViewModel
+@{
+    ViewData["Title"] = "Új Autó Felvétele";
+}
+
+<h1>Új autó hozzáadása</h1>
+<form method="post" action="Create">
+    <div class="form-group">
+        <label for="">Márka</label>
+        <input class="form-control" asp-for="Brand">
+    </div>
+    <div class="form-group">
+        <label for="">Típus</label>
+        <input class="form-control" asp-for="Type">
+    </div>
+    <div class="form-group">
+        <label for="">Rendszám</label>
+        <input class="form-control" asp-for="RegistrationNumber">
+    </div>
+    <div class="form-group">
+        <label for="">Gyártási Dátum</label>
+        <input type="date" class="form-control" asp-for="ProductionDate">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Hozzáadás</button>
+</form>
